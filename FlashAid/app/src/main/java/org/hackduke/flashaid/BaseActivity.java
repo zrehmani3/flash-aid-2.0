@@ -21,8 +21,10 @@ package org.hackduke.flashaid;
 import android.*;
 import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -33,6 +35,7 @@ public class BaseActivity extends ActionBarActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+<<<<<<< HEAD
         ActivityCompat.requestPermissions(BaseActivity.this,
                 new String[]{Manifest.permission.READ_CONTACTS,
                         Manifest.permission.WRITE_CONTACTS,
@@ -41,6 +44,43 @@ public class BaseActivity extends ActionBarActivity {
                         Manifest.permission.ACCESS_FINE_LOCATION,
                         Manifest.permission.ACCESS_COARSE_LOCATION},
                 0);
+=======
+        if (ContextCompat.checkSelfPermission(BaseActivity.this,
+                Manifest.permission.READ_CONTACTS)
+                != PackageManager.PERMISSION_GRANTED
+                || ContextCompat.checkSelfPermission(BaseActivity.this,
+                Manifest.permission.WRITE_CONTACTS)
+                != PackageManager.PERMISSION_GRANTED
+                || ContextCompat.checkSelfPermission(BaseActivity.this,
+                Manifest.permission.READ_SMS)
+                != PackageManager.PERMISSION_GRANTED
+                || ContextCompat.checkSelfPermission(BaseActivity.this,
+                Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED
+                || ContextCompat.checkSelfPermission(BaseActivity.this,
+                Manifest.permission.ACCESS_COARSE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED
+                || ContextCompat.checkSelfPermission(BaseActivity.this,
+                Manifest.permission.CALL_PHONE)
+                != PackageManager.PERMISSION_GRANTED
+                || ContextCompat.checkSelfPermission(BaseActivity.this,
+                Manifest.permission.RECEIVE_MMS)
+                != PackageManager.PERMISSION_GRANTED
+                || ContextCompat.checkSelfPermission(BaseActivity.this,
+                Manifest.permission.RECEIVE_SMS)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(BaseActivity.this,
+                    new String[]{Manifest.permission.READ_CONTACTS,
+                            Manifest.permission.WRITE_CONTACTS,
+                            android.Manifest.permission.READ_SMS,
+                            Manifest.permission.ACCESS_FINE_LOCATION,
+                            Manifest.permission.ACCESS_COARSE_LOCATION,
+                            Manifest.permission.CALL_PHONE,
+                            Manifest.permission.RECEIVE_MMS,
+                            Manifest.permission.RECEIVE_SMS},
+                    0);
+        }
+>>>>>>> origin/master
         if (!getSharedPreferences("user", MODE_PRIVATE).contains("email")) {
             Intent intent = new Intent(this, SignupActivity.class);
             startActivity(intent);

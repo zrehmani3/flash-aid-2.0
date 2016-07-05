@@ -59,12 +59,17 @@ public class SymptomsActivity extends BaseActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_symptoms);
         final String stringToShow = ((TextView) findViewById(R.id.time_left)).getText().toString();
-        mTimer = new CountDownTimer(16000, 1000) {
+        new CountDownTimer(16000, 1000) {
 
             public void onTick(long millisecondsLeft) {
                 int intTimeLeft = (int) ((millisecondsLeft / 1000));
+<<<<<<< HEAD
                 Log.v("tah", "" + intTimeLeft);
                 ((TextView) findViewById(R.id.time_left)).setText(String.format(stringToShow, intTimeLeft));
+=======
+//                ((TextView) findViewById(R.id.time_left)).setText(String.format(stringToShow, intTimeLeft));
+                ((TextView) findViewById(R.id.time_left)).setText("If you do not respond in the next " + intTimeLeft +" seconds, a call for help will be sent.");
+>>>>>>> origin/master
             }
 
             public void onFinish() {
@@ -73,8 +78,7 @@ public class SymptomsActivity extends BaseActivity implements
                     onSendCallButtonClick();
                 }
             }
-        };
-        mTimer.start();
+        }.start();
         findViewById(R.id.send_call).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -107,7 +111,7 @@ public class SymptomsActivity extends BaseActivity implements
     protected void onPause() {
         super.onPause();
         mLocationClient.disconnect();
-        mTimer.cancel();
+//        mTimer.cancel();
         if (mTTSInitComplete) {
             mTTS.stop();
             mTTS.shutdown();
@@ -116,6 +120,7 @@ public class SymptomsActivity extends BaseActivity implements
 
     private void onSendCallButtonClick() {
         if (mLocation == null) {
+            Log.v("hello", "its me");
             try {
                 synchronized (this) {
                     wait(15000);
@@ -137,8 +142,7 @@ public class SymptomsActivity extends BaseActivity implements
                 type = "epipen";
             }
             final String theRealType = type;
-            String x = String.format("{\"email\":\"%s\",\"latitude\":\"%s\",\"longitude\":\"%s\",\"type\":\"%s\"}",
-                    email, mLocation.getLatitude(), mLocation.getLongitude(), theRealType);
+            Log.v("hello", "im here");
             StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String s) {
@@ -194,6 +198,9 @@ public class SymptomsActivity extends BaseActivity implements
     @Override
     public void onConnected(Bundle bundle) {
         mLocation = mLocationClient.getLastLocation();
+        if (mLocation == null) {
+            Log.v("null", "im null");
+        }
         mLocationClient.disconnect();
         synchronized (this) {
             notifyAll();
