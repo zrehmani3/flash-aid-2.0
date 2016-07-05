@@ -35,16 +35,6 @@ public class BaseActivity extends ActionBarActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-<<<<<<< HEAD
-        ActivityCompat.requestPermissions(BaseActivity.this,
-                new String[]{Manifest.permission.READ_CONTACTS,
-                        Manifest.permission.WRITE_CONTACTS,
-                        android.Manifest.permission.READ_SMS,
-                        Manifest.permission.CALL_PHONE,
-                        Manifest.permission.ACCESS_FINE_LOCATION,
-                        Manifest.permission.ACCESS_COARSE_LOCATION},
-                0);
-=======
         if (ContextCompat.checkSelfPermission(BaseActivity.this,
                 Manifest.permission.READ_CONTACTS)
                 != PackageManager.PERMISSION_GRANTED
@@ -68,19 +58,30 @@ public class BaseActivity extends ActionBarActivity {
                 != PackageManager.PERMISSION_GRANTED
                 || ContextCompat.checkSelfPermission(BaseActivity.this,
                 Manifest.permission.RECEIVE_SMS)
+                != PackageManager.PERMISSION_GRANTED
+                || ContextCompat.checkSelfPermission(BaseActivity.this,
+                Manifest.permission.WAKE_LOCK)
+                != PackageManager.PERMISSION_GRANTED
+                || ContextCompat.checkSelfPermission(BaseActivity.this,
+                Manifest.permission.INTERNET)
+                != PackageManager.PERMISSION_GRANTED
+                || ContextCompat.checkSelfPermission(BaseActivity.this,
+                Manifest.permission.GET_ACCOUNTS)
                 != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(BaseActivity.this,
                     new String[]{Manifest.permission.READ_CONTACTS,
                             Manifest.permission.WRITE_CONTACTS,
-                            android.Manifest.permission.READ_SMS,
+                            Manifest.permission.READ_SMS,
                             Manifest.permission.ACCESS_FINE_LOCATION,
                             Manifest.permission.ACCESS_COARSE_LOCATION,
                             Manifest.permission.CALL_PHONE,
                             Manifest.permission.RECEIVE_MMS,
-                            Manifest.permission.RECEIVE_SMS},
+                            Manifest.permission.RECEIVE_SMS,
+                            Manifest.permission.WAKE_LOCK,
+                            Manifest.permission.INTERNET,
+                            Manifest.permission.GET_ACCOUNTS},
                     0);
         }
->>>>>>> origin/master
         if (!getSharedPreferences("user", MODE_PRIVATE).contains("email")) {
             Intent intent = new Intent(this, SignupActivity.class);
             startActivity(intent);

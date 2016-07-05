@@ -63,13 +63,8 @@ public class SymptomsActivity extends BaseActivity implements
 
             public void onTick(long millisecondsLeft) {
                 int intTimeLeft = (int) ((millisecondsLeft / 1000));
-<<<<<<< HEAD
-                Log.v("tah", "" + intTimeLeft);
-                ((TextView) findViewById(R.id.time_left)).setText(String.format(stringToShow, intTimeLeft));
-=======
 //                ((TextView) findViewById(R.id.time_left)).setText(String.format(stringToShow, intTimeLeft));
                 ((TextView) findViewById(R.id.time_left)).setText("If you do not respond in the next " + intTimeLeft +" seconds, a call for help will be sent.");
->>>>>>> origin/master
             }
 
             public void onFinish() {
