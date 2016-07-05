@@ -21,6 +21,7 @@
 
     <application
         android:allowBackup="true"
+        android:textColor="#FFFFFF"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
@@ -30,7 +31,8 @@
 
         <activity
             android:name="org.hackduke.flashaid.SignupActivity"
-            android:label="@string/title_activity_signup" />
+            android:label="@string/title_activity_signup"
+            android:textColor="#FFFFFF" />
         <activity
             android:name="org.hackduke.flashaid.CompleteProfileActivity"
             android:label="@string/title_complete_profile"

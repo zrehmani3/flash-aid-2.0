@@ -37,6 +37,7 @@ public class BaseActivity extends ActionBarActivity {
                 new String[]{Manifest.permission.READ_CONTACTS,
                         Manifest.permission.WRITE_CONTACTS,
                         android.Manifest.permission.READ_SMS,
+                        Manifest.permission.CALL_PHONE,
                         Manifest.permission.ACCESS_FINE_LOCATION,
                         Manifest.permission.ACCESS_COARSE_LOCATION},
                 0);

@@ -63,6 +63,7 @@ public class SymptomsActivity extends BaseActivity implements
 
             public void onTick(long millisecondsLeft) {
                 int intTimeLeft = (int) ((millisecondsLeft / 1000));
+                Log.v("tah", "" + intTimeLeft);
                 ((TextView) findViewById(R.id.time_left)).setText(String.format(stringToShow, intTimeLeft));
             }
 

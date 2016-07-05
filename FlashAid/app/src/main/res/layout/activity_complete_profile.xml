@@ -133,6 +133,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/keyline_minus_8dp"
                 android:hint="@string/person_one_number"
+                android:inputType="phone"
                 android:lines="1" />
 
             <TextView
@@ -156,6 +157,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/keyline_minus_8dp"
                 android:hint="@string/person_two_number"
+                android:inputType="phone"
                 android:lines="1" />
 
             <RelativeLayout
