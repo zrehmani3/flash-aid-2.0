@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "463814520981",
+    "firebase_url": "https://flashaid-7b71e.firebaseio.com",
+    "project_id": "flashaid-7b71e",
+    "storage_bucket": "flashaid-7b71e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:463814520981:android:86e0b5f405178f57",
+        "android_client_info": {
+          "package_name": "org.hackduke.flashaid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "463814520981-gom1nghadsi6a94mk2h95tkkl0uf30it.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuUrnkJCt6RIE5A_8ta2mPueu3mXPaeII"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

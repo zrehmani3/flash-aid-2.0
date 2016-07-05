@@ -16,20 +16,22 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:2.1.2'
+package org.hackduke.flashaid;
 
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
-    }
-}
+import android.content.Context;
 
-allprojects {
-    repositories {
-        jcenter()
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
+
+public class Network {
+
+    public static final String API_ENDPOINT = "http://ec2-52-40-233-129.us-west-2.compute.amazonaws.com";
+    private static RequestQueue mRequestQueue;
+
+    public static final RequestQueue getRequestQueue(Context context) {
+        if (mRequestQueue == null) {
+            mRequestQueue = Volley.newRequestQueue(context);
+        }
+        return mRequestQueue;
     }
 }

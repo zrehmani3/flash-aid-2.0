@@ -16,20 +16,22 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:2.1.2'
+package org.hackduke.flashaid;
 
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
-    }
-}
+import android.app.Activity;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.support.v4.content.WakefulBroadcastReceiver;
 
-allprojects {
-    repositories {
-        jcenter()
+public class GcmBroadcastReceiver extends WakefulBroadcastReceiver {
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        // Explicitly specify that GcmIntentService will handle the intent.
+        ComponentName comp = new ComponentName(context.getPackageName(),
+                GcmIntentService.class.getName());
+        // Start the service, keeping the device awake while it is launching.
+        startWakefulService(context, (intent.setComponent(comp)));
+        setResultCode(Activity.RESULT_OK);
     }
 }

@@ -16,20 +16,29 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:2.1.2'
+package org.hackduke.flashaid;
 
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
-    }
-}
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
 
-allprojects {
-    repositories {
-        jcenter()
+public class MainActivity extends BaseActivity {
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        findViewById(R.id.call_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onCallButtonClicked();
+            }
+        });
+    }
+
+    private void onCallButtonClicked() {
+        Intent intent = new Intent(MainActivity.this, SymptomsActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

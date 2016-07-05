@@ -33,25 +33,62 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-light"
-            android:text="@string/welcome_label"
+            android:text="@string/what_is_emergency_label"
             android:textSize="@dimen/header_text_size" />
 
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/keyline_minus_8dp"
-            android:text="@string/welcome_screen_text"
+            android:text="@string/emergency_text"
             android:textSize="@dimen/primary_text_size" />
 
-        <Button
-            android:id="@+id/call_button"
+        <RadioGroup
             android:layout_width="fill_parent"
-            android:layout_height="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/keyline"
+            android:checkedButton="@+id/radio_general"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@id/radio_general"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/emergency_type_general"
+                android:textSize="@dimen/primary_text_size" />
+
+            <RadioButton
+                android:id="@+id/radio_cpr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/emergency_type_cpr"
+                android:textSize="@dimen/primary_text_size" />
+
+            <RadioButton
+                android:id="@+id/radio_epi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/emergency_type_epipen"
+                android:textSize="@dimen/primary_text_size" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/send_call"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
             android:layout_marginTop="@dimen/keyline"
             android:background="?attr/colorPrimary"
-            android:elevation="2dp"
-            android:text="@string/call_for_help"
+            android:text="@string/send_call"
             android:textColor="#fff" />
+
+        <TextView
+            android:id="@+id/time_left"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/keyline"
+            android:text="@string/time_left"
+            android:textSize="@dimen/primary_text_size" />
 
     </LinearLayout>
 
